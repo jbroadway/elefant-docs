@@ -1,0 +1,41 @@
+/**
+ * Styles for the doc versions dropmenu.
+ */
+
+#versions-dropdown {
+	position: relative;
+	display: inline-block;
+	height: 18px;
+}
+
+	#versions-dropdown a:hover {
+		text-decoration: none;
+	}
+
+#versions-arrow {
+	display: inline-block;
+	width: 10px;
+	text-align: center;
+	margin-right: 6px;
+}
+
+#versions {
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 18px;
+	background-color: #fff;
+	width: 120px;
+	padding-top: 3px;
+	box-shadow: 1px 2px 5px rgba(0,0,0,.2);
+}
+
+	#versions ul, #versions ul li {
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+		margin-left: 8px;
+	}
+	
+	
