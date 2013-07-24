@@ -1,25 +1,24 @@
-# Elefant Docs App
+# Elefant Documentation Project
 
-This app is the basis for the [Elefant CMS documentation](http://www.elefantcms.com/docs).
-It provides the browsing functionality around pages stored in
-[PHP Markdown](http://michelf.ca/projects/php-markdown/) format
-in its `docs` folder.
+This is the new source for the [Elefant documentation](http://www.elefantcms.com/docs).
+Using Github, it becomes just as easy for contributors to help with
+documentation as it is with Elefant's source code.
 
-It is meant to be used by forking it on Github and using Git to
-manage pages in the `docs` folder. This way, documentation can
-be collaborated on just as easily as source code.
+To help by adding new docs, or making edits and corrections, [fork
+this repository](https://help.github.com/articles/fork-a-repo) and
+commit your changes, then make a [pull request](https://help.github.com/articles/using-pull-requests)
+to this project so they can be incorporated into the Elefant docs.
 
-# Usage summary
+We've even added an edit link to the footer of each page, so that
+you can just click that to fork and edit any page right from your
+web browser!
 
-1. Fork this project on Github. This page will refer to the forked project as `project-docs`.
-2. Add your pages to the `docs` folder (see below for more info).
-3. Clone the project into the `apps/docs` folder of your [Elefant CMS](http://www.elefantcms.com/) installation:
-		
-		cd /path/to/your/site
-		git clone https://github.com/user/project-docs.git apps/docs
-		
-4. Edit your `apps/docs/conf/config.php` file to customize your app settings.
-5. Log into Elefant and go to Tools > Navigation. Add the new `Documentation` page to your site tree.
+This helps us track each change and makes it possible for as many
+contributors to work on it at the same time without worrying about
+squashing each others work.
+
+> Note: To use this app for your own project's documentation, [fork it on
+> Github here.](https://github.com/jbroadway/docs)
 
 ## Editing the docs
 
@@ -35,7 +34,7 @@ The file names should be the "url-ified" equivalent of the page title,
 as returned by [`URLify::filter()`](https://github.com/jbroadway/urlify).
 For example:
 
-    Getting started with Project Name -> getting-started-with-project-name
+    Getting started with Elefant -> getting-started-with-elefant
 
 ## Markdown extensions
 
