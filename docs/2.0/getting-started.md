@@ -3,4 +3,5 @@
 * [[>Requirements]]
 * [[>Installation]]
 * [[>First steps]]
+* [[>Troubleshooting]]
 * [Support](/forum/)
