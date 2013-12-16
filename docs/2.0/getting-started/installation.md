@@ -42,7 +42,7 @@ For Nginx users, see the included `nginx.conf` for an example configuration.
 
 **Step 3.** Set the file permissions using the following command:
 
-	/var/www/elefant permissions
+	./elefant permissions
 
 > If you're using FTP and not SSH to connect to your site, right-click each folder listed
 > above to set its permissions. Make sure to click the option that says something to the
@@ -82,7 +82,7 @@ This will guide you through the rest of the setup process.
 
 **Step 5.** Run the following command to complete the installation:
 
-	/var/www/elefant install
+	./elefant install
 
 This will generate a username and password for you to log into the admin area.
 
@@ -130,7 +130,7 @@ For Nginx users, see the included `nginx.conf` for an example configuration.
 
 **Step 3.** Set the file permissions using the following command:
 
-	/var/www/elefant permissions
+	./elefant permissions
 
 ### Sub-folder installations
 
@@ -159,7 +159,7 @@ This will guide you through the rest of the setup process.
 
 **Step 5.** Run the following command to complete the installation:
 
-	/var/www/elefant install
+	./elefant install
 
 This will generate a username and password for you to log into the admin area.
 
