@@ -33,4 +33,9 @@ apps, themes and PHP libraries:
 
 	composer update
 
+### One last step
+
+Log into Elefant and if there's an update routine that also needs to be run, it will
+appear highlighted in the Tools menu as `App Name (click to upgrade)`.
+
 Next: [[:Multilingual setup]]

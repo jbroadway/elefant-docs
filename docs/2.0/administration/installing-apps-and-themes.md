@@ -40,4 +40,9 @@ You can also install an app or theme simply by placing the app or theme's folder
 the appropriate folder in your Elefant installation. There may be additional steps
 outlined in the provided `README` file, so be sure to check for that.
 
+## One last step
+
+Log into Elefant and if there's an install routine that also needs to be run, it will
+appear highlighted in the Tools menu as `App Name (click to install)`.
+
 Next: [[:Backing up your site]]
