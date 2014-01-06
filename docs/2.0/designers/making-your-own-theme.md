@@ -40,7 +40,7 @@ Here is an example of a functionally complete design template with all of the re
 	</body>
 	</html>
 
-This template includes all of the necessary tags for Elefant's admin features, displays the page title and body, and prefixes the window title with the name of the name as taken from the site configuration.
+This template includes all of the necessary tags for Elefant's admin features, displays the page title and body, and prefixes the window title with the name of the name as taken from the site configuration. See [[:Available template tags]] for an overview of the different template tags.
 
 ## Referring to file paths
 
