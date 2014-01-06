@@ -185,4 +185,4 @@ Hard-coded includes work just like dynamic includes, except that instead of prod
 
 This difference means that there is no PHP overhead for hard-coded includes after the template is compiled, making them extremely fast, but the output of the include will not change again until the template is recompiled again or the cache is cleared.
 
-Next: [[:Available template tags]]
+Next: [[:Content blocks]]

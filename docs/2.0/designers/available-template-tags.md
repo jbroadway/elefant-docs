@@ -2,8 +2,6 @@
 
 When a layout template is run, it is passed the [Page](http://api.elefantcms.com/visor/lib/Page) object, which makes the following tags available to the template. Note the way each is used, as some have filters or conditions that will help ensure they render consistently.
 
-Below the tag list is a complete example template with all of the required elements.
-
 ### id
 
 The page identifier, refers to the unique ID of the page used in the URL, e.g. in the page `http://www.example.com/page_id` the ID value would be `page_id`. If you need to include this in the template itself, use:
@@ -68,25 +66,4 @@ This also includes jQuery into your `<head></head>`, which is used by several bu
 
 	<?php echo $this->controller->run ('admin/head'); ?>
 
-## A complete template
-
-Here is an example of a functionally complete Elefant layout template:
-
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>{{ conf('General', 'site_name') }} - {{ window_title|none }}</title>
-		{! admin/head !}
-		{{ head|none }}
-	</head>
-	<body>
-	{% if title %}<h1>{{ title|none }}</h1>{% end %}
-	{{ body|none }}
-
-	{{ tail|none }}
-	</body>
-	</html>
-
-This template includes all of the necessary tags for Elefant's admin toolbar and inline editing features, along with the page title and body and a custom window title comprised of the site name and the current page title.
-
-Next: [[:Content blocks]]
+Next: [[:Template language]]

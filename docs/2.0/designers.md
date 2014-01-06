@@ -1,8 +1,8 @@
 # Designers
 
 * [[>Making your own theme]]
-* [[>Template language]]
 * [[>Available template tags]]
+* [[>Template language]]
 * [[>Content blocks]]
 * [[>Including dynamic content]]
 * [[>Sharing your themes]]
