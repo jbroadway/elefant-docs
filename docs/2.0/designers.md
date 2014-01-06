@@ -6,3 +6,5 @@
 * [[>Content blocks]]
 * [[>Including dynamic content]]
 * [[>Sharing your themes]]
+* [[>Search engine optimization]]
+* [[>White labelling the CMS]]

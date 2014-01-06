@@ -12,7 +12,7 @@ The page identifier, refers to the unique ID of the page used in the URL, e.g. i
 
 ### title
 
-The title of the page. This may be empty, so you can use this line to wrap it in a condition that only outputs the title if it's available:
+The title of the page. This may be empty, so you can use a condition to only output the title if it's available:
 
     {% if title %}<h1>{{ title|none }}</h1>{% end %}
 
