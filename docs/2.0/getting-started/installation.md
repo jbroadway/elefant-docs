@@ -15,7 +15,7 @@ install it by running the following commands:
 
 You will also need the following information to complete the installation process:
 
-* The address of your website. For the examples below, we will refer to `www.example.com`.
+* The address of your website. For the examples below, we will refer to `www.example.com`. If you are using `localhost`, please see [[:setting up a hostname alias]].
 * The root folder of your website, called the document root. For the examples below, we will refer to the folder `/var/www`.
 * The name of the web server software you're using, usually Apache or Nginx.
 * The connection info to your MySQL or PostgreSQL database (SQLite users don't need this).
@@ -103,7 +103,7 @@ install it by running the following commands:
 
 You will also need the following information to complete the installation process:
 
-* The address of your website. For the examples below, we will refer to `www.example.com`.
+* The address of your website. For the examples below, we will refer to `www.example.com`. If you are using `localhost`, please see [[:setting up a hostname alias]].
 * The root folder of your website, called the document root. For the examples below, we will refer to the folder `/var/www`.
 * The name of the web server software you're using, usually Apache or Nginx.
 * The connection info to your MySQL or PostgreSQL database (SQLite users don't need this).
@@ -178,7 +178,7 @@ to install Composer on Windows.
 
 You will also need the following information to complete the installation process:
 
-* The address of your website. For the examples below, we will refer to `www.example.com`.
+* The address of your website. For the examples below, we will refer to `www.example.com`. If you are using `localhost`, please see [[:setting up a hostname alias]].
 * The root folder of your website, called the document root. For the examples below, we will refer to the folder `C:\wamp\www`.
 * The name of the web server software you're using, usually Apache or Nginx.
 * The connection info to your MySQL or PostgreSQL database (SQLite users don't need this).
