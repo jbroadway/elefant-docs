@@ -43,13 +43,20 @@ So we know that to use this helper, we need to include the URL like this:
 
 ## Common helpers for designers
 
-Here are a few common helpers used in design themes:
+Here are a few common helpers often used in designing themes:
 
 * `blog/headlines` - Embed the latest headlines from your blog
 * `blog/postsfeed` - Embed your blog into the current page
 * `blog/tags` - Embed a tag cloud for your blog
 * `filemanager/slideshow` - Embed a photo slideshow
 * `filemanager/video` - Embed a video into the current page
+* `navigation/breadcrumb` - Embed a breadcrumb menu
+* `navigation/contextual` - Embed a contextual menu
+* `navigation/dropmenu` - Embed a drop down menu
+* `navigation/languages` - Embed a language selector
+* `navigation/map` - Embed a site map
+* `navigation/section` - Embed a section menu
+* `navigation/top` - Embed a top-level menu
 * `social/video/youtube` - Embed a YouTube video into the current page
 * `user/sidebar` - Embed a user login/profile summary
 
