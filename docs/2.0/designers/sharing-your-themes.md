@@ -52,9 +52,36 @@ Elefant apps and themes can also be shared through [Composer](http://getcomposer
 
 1\. Follow the steps above to setup your shared theme.
 
-2\. Create a `composer.json` file and place it in your theme folder.
+2\. Create a `composer.json` file and place it in your theme folder. This tells Composer about your package and how to install it.
 
-...
+Your `composer.json` file should contain the following:
+
+~~~
+{
+    "name": "elefant/theme-yourtheme",
+    "type": "elefant-theme",
+    "description": "Description of your theme for the Elefant CMS",
+    "keywords": ["theme", "design", "layout", "template", "elefant", "cms", "app"],
+    "license": "MIT",
+	"authors": [
+		{
+			"name": "Your Name",
+			"email": "you@your-website.com",
+			"homepage": "http://www.your-website.com/"
+		}
+	],
+    "repositories": [
+        {"type": "git", "url": "http://github.com/jbroadway/theme_installer"}
+    ],
+    "require": {
+        "elefant/theme-installer": "*"
+    }
+}
+~~~
+
+Edit the values to reflect your theme info.
+
+3\. ...
 
 [Here is a complete list of Elefant apps and themes available through Composer.](https://packagist.org/packages/elefant/)
 
