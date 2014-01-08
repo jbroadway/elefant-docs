@@ -36,15 +36,18 @@ Edit the values to reflect your theme info.
 5\. Initialize your theme as a git repository and push your files to the server. These are the steps using git directly from the command line:
 
 ~~~
-cd /var/www/layouts/your-theme
-git init
-git add *
-git commit -m "Initial import" *
-git remote add origin https://github.com/github-username/repository-name.git
-git push origin master
+cd /var/www/layouts/your-theme                   # <- adjust this path
+git init                                         # initialize a new repository
+git add *                                        # add your files to the repository
+git commit -m "Initial import" *                 # commit the changes
+git remote add origin \
+    https://github.com/user/repository.git       # <- adjust the user and repository
+git push origin master                           # upload the changes to github
 ~~~
 
-...
+Using GitHub for Mac, once you set your account info in the app, you would select File > New Repository and enter your theme info in the dialog that opens up. It should look like this:
+
+![GitHub for Mac - New repository](/apps/docs/docs/2.0/pix/github-for-mac-new-repo.png)
 
 ## Sharing with Composer
 
@@ -81,7 +84,26 @@ Your `composer.json` file should contain the following:
 
 Edit the values to reflect your theme info.
 
-3\. ...
+3\. Add your `composer.json` file to the repository and upload it to GitHub. From the command line, here are the steps:
+
+~~~
+cd /var/www/layouts/your-theme                   # <- adjust this path
+git add composer.json                            # add the new file
+git commit -m "Add composer file" composer.json  # commit the changes
+git push origin master                           # upload the changes to github
+~~~
+
+In GitHub for Mac, you would open the project, then under `Uncommitted Changes` select the `composer.json` file and make a new commit. Click `Sync Branch` to upload the new file to GitHub.
+
+4\. Create a new account at [Packagist](https://packagist.org/), then click `Submit Package`. Paste the clone URL from your GitHub project page into the `Repository URL` field on Packagist. This can be found on the right side of the GitHub page and looks like this:
+
+![GitHub clone URL](/apps/docs/docs/2.0/pix/github-clone-url.png)
+
+Users should now be able to install your theme via Composer like this:
+
+~~~
+composer require elefant/theme-mytheme
+~~~
 
 [Here is a complete list of Elefant apps and themes available through Composer.](https://packagist.org/packages/elefant/)
 
