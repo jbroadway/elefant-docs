@@ -107,4 +107,13 @@ composer require elefant/app-myapp
 
 [Here is a complete list of Elefant apps and themes available through Composer.](https://packagist.org/packages/elefant/)
 
+## Preparing your app for sharing
+
+There are several user experience considerations to make when sharing an app with other users. These include:
+
+* [[>Installation and upgrade processes]]
+* [[>User configurable app settings]]
+
+Taking these steps, your app is sure to provide an excellent experience for your users.
+
 Next: [[:Contributing to Elefant]]
