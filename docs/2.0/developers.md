@@ -1,7 +1,6 @@
 # Developers
 
 * [[>Making your own apps]]
-* [[>Structure of an app]]
 * [[>Request-response cycle]]
 * [[>Modelling your data]]
 * [[>View templates]]
@@ -14,4 +13,5 @@
 * [[>Server-side helpers]]
 * [[>PHPUnit and testing]]
 * [[>Using Composer and Packagist]]
+* [[>Sharing your apps]]
 * [[>Contributing to Elefant]]
