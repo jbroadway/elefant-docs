@@ -6,7 +6,7 @@ Elefant lets you to specify alternate configurations for your development, stagi
 
 2. In your `.htaccess` or web server configuration, set the `ELEFANT_ENV` environment variable. For Apache you would add a line like this:
 
-~~~
+~~~apache
 SetEnv ELEFANT_ENV development
 ~~~
 

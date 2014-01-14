@@ -16,13 +16,17 @@ To install an app or theme using Elefant's CLI tool, enter its Github repository
 or a link to a zip file of the app. Github shorthand names of the form `user/repository`
 are also supported, for example:
 
-	./elefant install jbroadway/dbman
+~~~bash
+./elefant install jbroadway/dbman
+~~~
 
 ## Using Composer
 
 To install an app or theme using [Composer](http://getcomposer.org/), use the following commands:
 
-	composer require elefant/app-form
+~~~bash
+composer require elefant/app-form
+~~~
 
 Composer will know where to install the package based on its type (app or theme). You can
 also install 3rd party PHP libraries in the same way, which will be installed in the `lib/vendor`

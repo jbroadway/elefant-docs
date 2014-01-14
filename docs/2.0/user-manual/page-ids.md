@@ -2,7 +2,9 @@
 
 The page ID is the unique identifier of a page within your site, and is used as the unique address of that page in the browser's address bar. For example, if your page ID is `about-us`, the address of the page in your site would be:
 
-    http://www.example.com/about-us
+~~~http
+http://www.example.com/about-us
+~~~
 
 When adding a new page, the page ID will be auto-filled based on the title of the page, but you are free to customize it to what you would like to appear in the address bar.
 

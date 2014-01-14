@@ -14,11 +14,15 @@ you're in the document root of your website when running the command. For exampl
 your document root is `/var/www` then these two examples will both print the help info
 and command list when executed:
 
-	cd /var/www
-	./elefant
+~~~bash
+cd /var/www
+./elefant
+~~~
 
 And without the `cd` first:
 
-	/var/www/elefant
+~~~bash
+/var/www/elefant
+~~~
 
 Next: [[:Installing apps and themes]]

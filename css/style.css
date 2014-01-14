@@ -37,5 +37,79 @@
 		border: 0px;
 		margin-left: 8px;
 	}
-	
-	
+
+/**
+ * Styles for the code samples.
+ */
+
+.hljs {
+	border: 1px solid #ddd;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 0.9em;
+}
+
+p>code, li>code, blockquote>code {
+	background-color: #fafafa;
+	color: #000;
+	border: 1px solid #ddd;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	padding: 1px 2px 1px 2px;
+	font-size: 0.9em;
+}
+
+#docs-body blockquote {
+	background-color: #ffe;
+	border: 1px solid #ddb;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	padding: 5px;
+	margin-bottom: 12px;
+}
+
+	#docs-body blockquote p {
+		display: inline;
+	}
+
+#docs-body table {
+	width: 100%;
+}
+
+#docs-body th {
+	padding: 3px;
+	font-weight: bold;
+}
+
+#docs-body td {
+	padding: 3px;
+}
+
+#targets {
+	float: right;
+}
+
+#breadcrumb {
+	border-bottom: 1px dotted #ccc;
+	padding-bottom: 3px;
+}
+
+#docs-body {
+	margin-top: 20px;
+}
+
+#docs-notice {
+	background-color: #ffe;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cca;
+	color: #000;
+	padding: 5px 5px 5px 8px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 13px;
+}

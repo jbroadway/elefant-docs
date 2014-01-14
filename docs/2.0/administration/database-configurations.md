@@ -6,37 +6,45 @@ Here are some examples of common configurations.
 
 ## SQLite connection
 
-	master[driver] = sqlite
-	master[file] = ""conf/site.db""
+~~~ini
+master[driver] = sqlite
+master[file] = "conf/site.db"
+~~~
 
 ## MySQL basic
 
-	master[driver] = mysql
-	master[host] = ""localhost:3306""
-	master[name] = my_db
-	master[user] = my_user
-	master[pass] = ""********""
+~~~ini
+master[driver] = mysql
+master[host] = "localhost:3306"
+master[name] = my_db
+master[user] = my_user
+master[pass] = "********"
+~~~
 
 ## MySQL master/slave
 
-	master[driver] = mysql
-	master[host] = ""192.168.101.123:3306""
-	master[name] = my_db
-	master[user] = my_user
-	master[pass] = ""********""
-	
-	slave_one[driver] = mysql
-	slave_one[host] = ""192.168.101.234:3306""
-	slave_one[name] = my_db
-	slave_one[user] = my_user
-	slave_one[pass] = ""********""
+~~~ini
+master[driver] = mysql
+master[host] = "192.168.101.123:3306"
+master[name] = my_db
+master[user] = my_user
+master[pass] = "********"
+
+slave_one[driver] = mysql
+slave_one[host] = "192.168.101.234:3306"
+slave_one[name] = my_db
+slave_one[user] = my_user
+slave_one[pass] = "********"
+~~~
 
 # PostgreSQL connection
 
-	master[driver] = pgsql
-	master[host] = ""localhost:5432""
-	master[name] = my_db
-	master[user] = my_user
-	master[pass] = ""********""
+~~~ini
+master[driver] = pgsql
+master[host] = "localhost:5432"
+master[name] = my_db
+master[user] = my_user
+master[pass] = "********"
+~~~
 
 Next: [[:Setting up dev, staging, and production environments]]

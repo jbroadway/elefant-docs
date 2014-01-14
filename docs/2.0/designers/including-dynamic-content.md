@@ -2,7 +2,7 @@
 
 Dynamic includes can be used to embedded almost any handler into your template, although apps often provide specific handlers that are intended for reuse outside of the app itself, called helpers. To see a list of handlers that apps have marked as helpers, you can run the following [command](/docs/2.0/administration/command-line-tool):
 
-~~~
+~~~bash
 ./elefant list-helpers
 ~~~
 
@@ -10,7 +10,7 @@ This will output a raw list of handlers. To see what a given handler does and ho
 
 For example, the `blog/tags` helper says:
 
-~~~
+~~~php
 /**
  * Renders a tag cloud, with more frequently used tags appearing larger.
  */
@@ -18,13 +18,13 @@ For example, the `blog/tags` helper says:
 
 This helper uses no parameters, so including it in your template is as simple as this:
 
-~~~
+~~~html
 {! blog/tags !}
 ~~~
 
 The `blog/rssviewer` helper lists one parameter:
 
-~~~
+~~~php
 /**
  * Renders the specified RSS feed `url` as a list of links.
  * Caches the feed for 30 minutes between updates.
@@ -37,7 +37,7 @@ The `blog/rssviewer` helper lists one parameter:
 
 So we know that to use this helper, we need to include the URL like this:
 
-~~~
+~~~html
 {! blog/rssviewer?url=http://www.example.com/blog/rss !}
 ~~~
 

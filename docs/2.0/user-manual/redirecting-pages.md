@@ -9,7 +9,7 @@ You can create a page redirect within your site with the following steps:
 
 When you visit the page as a site admin, instead of being redirected you'll see the following notice:
 
-~~~
+~~~html
 This page forwards visitors to the following link:
 
 http://www.example.com/

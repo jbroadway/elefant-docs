@@ -10,8 +10,10 @@ We recommend using [Composer](http://getcomposer.org/), the PHP dependency
 manager, as the best way to install Elefant. If you don't have Composer, you can
 install it by running the following commands:
 
-	curl -sS https://getcomposer.org/installer | php
-	mv composer.phar /usr/local/bin/composer
+~~~bash
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+~~~
 
 You will also need the following information to complete the installation process:
 
@@ -24,7 +26,9 @@ You will also need the following information to complete the installation proces
 
 **Step 1.** Brab the latest copy of Elefant using the following command:
 
-	composer create-project elefant/cms --stability=dev /var/www
+~~~bash
+composer create-project elefant/cms --stability=dev /var/www
+~~~
 
 > Note: The `--stability=dev` option is required until Elefant 2 is out of beta.
 
@@ -42,7 +46,9 @@ For Nginx users, see the included `nginx.conf` for an example configuration.
 
 **Step 3.** Set the file permissions using the following command:
 
-	./elefant permissions
+~~~bash
+./elefant permissions
+~~~
 
 > If you're using FTP and not SSH to connect to your site, right-click each folder listed
 > above to set its permissions. Make sure to click the option that says something to the
@@ -82,7 +88,9 @@ This will guide you through the rest of the setup process.
 
 **Step 5.** Run the following command to complete the installation:
 
-	./elefant install
+~~~bash
+./elefant install
+~~~
 
 This will generate a username and password for you to log into the admin area.
 
@@ -98,8 +106,10 @@ We recommend using [Composer](http://getcomposer.org/), the PHP dependency
 manager, as the best way to install Elefant. If you don't have Composer, you can
 install it by running the following commands:
 
-	curl -sS https://getcomposer.org/installer | php
-	mv composer.phar /usr/local/bin/composer
+~~~bash
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+~~~
 
 You will also need the following information to complete the installation process:
 
@@ -112,7 +122,9 @@ You will also need the following information to complete the installation proces
 
 **Step 1.** Brab the latest copy of Elefant using the following command:
 
-	composer create-project elefant/cms --stability=dev /var/www
+~~~bash
+composer create-project elefant/cms --stability=dev /var/www
+~~~
 
 > Note: The `--stability=dev` option is required until Elefant 2 is out of beta.
 
@@ -130,7 +142,9 @@ For Nginx users, see the included `nginx.conf` for an example configuration.
 
 **Step 3.** Set the file permissions using the following command:
 
-	./elefant permissions
+~~~bash
+./elefant permissions
+~~~
 
 ### Sub-folder installations
 
@@ -159,7 +173,9 @@ This will guide you through the rest of the setup process.
 
 **Step 5.** Run the following command to complete the installation:
 
-	./elefant install
+~~~bash
+./elefant install
+~~~
 
 This will generate a username and password for you to log into the admin area.
 
@@ -187,7 +203,9 @@ You will also need the following information to complete the installation proces
 
 **Step 1.** Brab the latest copy of Elefant using the following command:
 
-	composer create-project elefant/cms --stability=dev C:\wamp\www
+~~~bash
+composer create-project elefant/cms --stability=dev C:\wamp\www
+~~~
 
 > Note: The `--stability=dev` option is required until Elefant 2 is out of beta.
 

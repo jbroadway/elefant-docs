@@ -42,7 +42,9 @@ For example, if your app is just a couple classes, then you would only need a `l
 
 You can use the following command to generate a base scaffold for a new app:
 
-	./elefant build-app myapp
+~~~bash
+./elefant build-app myapp
+~~~
 
 This will create a new barebones app structure in `apps/myapp`.
 
@@ -75,7 +77,7 @@ The autoloader will fall back to [PSR-0](http://www.php-fig.org/psr/psr-0/) styl
 
 The ACL file lists any custom resources your app should add to Elefant's user roles, for example:
 
-~~~php
+~~~ini
 ; <?php /*
 
 designer = "Edit design themes"
@@ -88,7 +90,7 @@ designer/installer = "Install new apps/themes"
 
 The CLI file lists any handlers that should be run from the command line. These are added to the `./elefant` command's list of extended commands. For example:
 
-~~~php
+~~~ini
 ; <?php /*
 
 commands[resque/run] = Start running the Resque workers
@@ -106,7 +108,7 @@ See [[:App Configurations]] for more information on the config file options.
 
 The embed file lists handlers that you want to include in the [[User Manual / Dynamic Objects]] menu of the WYSIWYG editor. Since dynamic objects can specify input parameters, we use INI section blocks named after the handlers with the parameters listed below, for example:
 
-~~~php
+~~~ini
 ; <?php /*
 
 [blog/rssviewer]
@@ -140,7 +142,7 @@ Additional settings are interpreted as [[:input validation]] rules.
 
 The helpers file lists any handlers that you wish to denote as helpers to be used by other developers in their own apps. These will be listed when a user runs the `./elefant list-helpers` command. For example:
 
-~~~php
+~~~ini
 ; <?php /*
 
 user/login = 1
@@ -158,7 +160,7 @@ These contain the initial database schema for your app's models. Alternately, yo
 
 The payments file lists any handlers that adheres to Elefant's [payment processing interface](https://github.com/jbroadway/stripe#creating-a-member-payment-or-subscription-form), which allows your app to act as a payment processor for other apps. For example:
 
-~~~php
+~~~ini
 ; <?php /*
 
 stripe/payment = "Stripe Payments"

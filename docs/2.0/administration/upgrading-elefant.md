@@ -4,7 +4,9 @@
 
 To upgrade your site, use the Elefant CLI tool like this:
 
-	./elefant update
+~~~bash
+./elefant update
+~~~
 
 The update command pulls patches from the [elefant-updates](https://github.com/jbroadway/elefant-updates)
 Github repository, then does a dry run to test whether the patches can be applied without
@@ -24,14 +26,18 @@ of each patch before applying them.
 
 Using the Elefant CLI tool, enter the following command to update all of your apps at once:
 
-	./elefant update all
+~~~bash
+./elefant update all
+~~~
 
 ### Using Composer
 
 Using Composer, you can run the following command to update all installed packages, including
 apps, themes and PHP libraries:
 
-	composer update
+~~~bash
+composer update
+~~~
 
 ### One last step
 

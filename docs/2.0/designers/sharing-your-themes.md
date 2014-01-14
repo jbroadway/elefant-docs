@@ -12,7 +12,7 @@ To make your theme available to others, here are the steps:
 
 Your `elefant.json` file should contain the following:
 
-~~~
+~~~json
 {
     "type":         "theme",
     "folder":       "your-theme",
@@ -35,7 +35,7 @@ Edit the values to reflect your theme info.
 
 5\. Initialize your theme as a git repository and push your files to the server. These are the steps using git directly from the command line:
 
-~~~
+~~~bash
 cd /var/www/layouts/your-theme                   # <- adjust this path
 git init                                         # initialize a new repository
 git add *                                        # add your files to the repository
@@ -59,7 +59,7 @@ Elefant apps and themes can also be shared through [Composer](http://getcomposer
 
 Your `composer.json` file should contain the following:
 
-~~~
+~~~json
 {
     "name": "elefant/theme-yourtheme",
     "type": "elefant-theme",
@@ -86,7 +86,7 @@ Edit the values to reflect your theme info.
 
 3\. Add your `composer.json` file to the repository and upload it to GitHub. From the command line, here are the steps:
 
-~~~
+~~~bash
 cd /var/www/layouts/your-theme                   # <- adjust this path
 git add composer.json                            # add the new file
 git commit -m "Add composer file" composer.json  # commit the changes
@@ -101,7 +101,7 @@ In GitHub for Mac, you would open the project, then under `Uncommitted Changes` 
 
 Users should now be able to install your theme via Composer like this:
 
-~~~
+~~~bash
 composer require elefant/theme-mytheme
 ~~~
 

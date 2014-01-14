@@ -53,30 +53,7 @@ $(function () {
 	targets.init ({
 		targets: {{targets|json_encode}}
 	});
+	
+	hljs.initHighlightingOnLoad ();
 });
 </script>
-
-<style>
-#targets {
-	float: right;
-}
-#breadcrumb {
-	border-bottom: 1px dotted #ccc;
-	padding-bottom: 3px;
-}
-#docs-body {
-	margin-top: 20px;
-}
-#docs-notice {
-	background-color: #ffe;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid #cca;
-	color: #000;
-	padding: 5px 5px 5px 8px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-size: 13px;
-}
-</style>

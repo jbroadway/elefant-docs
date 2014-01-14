@@ -4,15 +4,17 @@ Creating a white label/custom branded CMS from Elefant is easy. To rebrand Elefa
 
 1\. Edit the file `conf/product.php` to point to your own custom product info. For example, say you wanted to call the CMS `Ultra CMS`, you would change it to something like this:
 
-    ; <?php /*
-    
-    name = Ultra CMS
-    website = "http://www.ultracms.com/"
-    logo_login = "/apps/admin/css/admin/ultracms_logo_login.png"
-    logo_toolbar = "/apps/admin/css/admin/ultracms_logo.png"
-    stylesheet = "/apps/admin/css/ultracms.css"
-    
-    ; */ ?>
+~~~ini
+; <?php /*
+
+name = Ultra CMS
+website = "http://www.ultracms.com/"
+logo_login = "/apps/admin/css/admin/ultracms_logo_login.png"
+logo_toolbar = "/apps/admin/css/admin/ultracms_logo.png"
+stylesheet = "/apps/admin/css/ultracms.css"
+
+; */ ?>
+~~~
 
 2\. Duplicate the `apps/admin/css/admin.css` stylesheet to `apps/admin/css/ultracms.css` and make any style changes you want, such as custom colour choices.
 

@@ -17,9 +17,11 @@ if (preg_match ('|^/docs/([0-9]+\.[0-9]+)$|', $_SERVER['REQUEST_URI'], $regs)) {
 
 $page->id = 'docs';
 $page->title = $doc->title ();
+$page->add_style ('/apps/docs/js/highlight/styles/github.css');
 $page->add_style ('/apps/docs/css/style.css');
 $page->add_script ('/js/jquery.cookie.js');
 $page->add_script ('/apps/docs/js/targets.js');
+$page->add_script ('/apps/docs/js/highlight/highlight.pack.js');
 
 URLify::$remove_list = array ();
 
