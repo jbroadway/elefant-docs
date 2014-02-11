@@ -3,9 +3,10 @@
 Elefant is an open source project, which means we're always looking for new community members to help push the project forward. Here are some ways you can get involved:
 
 * [Improve the documentation](https://github.com/jbroadway/elefant-docs#elefant-documentation-project)
-* [Translate Elefant into a new language](/docs/2.0/administration/multilingual-setup)
+* [Translate Elefant into a new language](/docs/2.0/developers/contributing-to-elefant/translations)
 * [Create a new design theme](/docs/2.0/designers/sharing-your-themes)
 * [Help test and fix bugs](https://github.com/jbroadway/elefant/issues?_=1336681340159&state=open)
+* [Create a custom app](/docs/2.0/developers/contributing-to-elefant/custom-apps)
 
 ## Contributors
 
