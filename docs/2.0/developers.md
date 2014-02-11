@@ -15,3 +15,4 @@
 * [[>Using Composer and Packagist]]
 * [[>Sharing your apps]]
 * [[>Contributing to Elefant]]
+* [API reference](http://api.elefantcms.com/)
