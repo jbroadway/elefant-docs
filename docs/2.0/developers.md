@@ -2,9 +2,9 @@
 
 * [[>Making your own apps]]
 * [[>Request-response cycle]]
+* [[>Mapping your routes]]
 * [[>Modelling your data]]
 * [[>View templates]]
-* [[>Mapping your routes]]
 * [[>Form handling]]
 * [[>Input validation]]
 * [[>Creating RESTful APIs]]
