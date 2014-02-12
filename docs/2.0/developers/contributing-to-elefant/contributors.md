@@ -21,6 +21,7 @@ Here is a list of contributors to the Elefant project:
 * [gareththered](https://github.com/gareththered)
 * [Jon Phipps](https://github.com/jonphipps)
 * [electrolinux](https://github.com/electrolinux)
+* [GWSoftware](https://github.com/GWSoftware)
 
 Thank you for helping make Elefant the best it can be!
 
