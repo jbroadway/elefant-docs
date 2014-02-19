@@ -448,3 +448,5 @@ in your app:
 
 Available by including the `admin/util/extended` handler. See
 usage section for more details.
+
+Next: [[:Server-side helpers]]
