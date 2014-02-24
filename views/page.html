@@ -5,7 +5,7 @@
 {% if version %}
 <div id="breadcrumb">
 	<span id="versions-dropdown">
-	<a href="/docs/{{version}}"><i class="icon-angle-right" id="versions-arrow"></i>{{Appconf::docs ('Docs', 'app_name')}} {{version}}</a>
+	<a href="/docs/{{version}}"><i class="fa fa-angle-right" id="versions-arrow"></i>{{Appconf::docs ('Docs', 'app_name')}} {{version}}</a>
 	<div id="versions">
 		<ul>
 		{% foreach versions as ver %}
@@ -41,11 +41,11 @@
 $(function () {
 	$('#versions-dropdown').hover (
 		function () {
-			$('#versions-arrow').removeClass ('icon-angle-right').addClass ('icon-angle-down');
+			$('#versions-arrow').removeClass ('fa fa-angle-right').addClass ('fa fa-angle-down');
 			$('#versions').slideDown ('fast');
 		},
 		function () {
-			$('#versions-arrow').removeClass ('icon-angle-down').addClass ('icon-angle-right');
+			$('#versions-arrow').removeClass ('fa fa-angle-down').addClass ('fa fa-angle-right');
 			$('#versions').slideUp ('fast');
 		}
 	);

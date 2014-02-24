@@ -345,7 +345,7 @@ Elefant provides a helper for including the
 ~~~html
 {! admin/util/fontawesome !}
 
-<p><i class="icon-cogs"></i> {"Settings"}</p>
+<p><i class="fa fa-cogs"></i> {"Settings"}</p>
 ~~~
 
 ### Availability:
