@@ -175,7 +175,8 @@ class Person extends \Model {
 	
 	public $verify = array (
 		'age' => array (
-			'type' => 'numeric'
+			'type' => 'numeric',
+			'range' => '1-150'
 		),
 		'gender' => array (
 			'regex' => '/^(m|f)$/'
@@ -185,6 +186,10 @@ class Person extends \Model {
 
 ?>
 ~~~
+
+Now whenever you execute a `put()` call on your models, if validation fails then it
+will return false, set the `$error` property to `Validation failed for: fieldname` and
+set the `$failed` property to a list of the fields that failed the validation.
 
 You can also store the validations in their own file, just like form validations, by
 setting `$verify` to the path to your validation file:
@@ -211,6 +216,7 @@ In the validation file, the same validations as above would look like this:
 
 [age]
 type = numeric
+range = 1-150
 
 [gender]
 regex = "/^(m|f)$/"
@@ -224,7 +230,118 @@ regex = "/^(m|f)$/"
 
 ## Flexible schemas with ExtendedModel
 
-...
+[ExtendedModel](http://api.elefantcms.com/visor/lib/ExtendedModel) is a class that extends
+Model to include a single field that can contain any JSON data, which will be encoded
+and decoded for you automatically. This enables you to extend your models with any number
+of additional properties without needing to change your schema.
+
+Note that these values are not indexable directly, so they are better suited to fields
+that don't form part of your search queries.
+
+You define extended models by extending from `ExtendedModel` instead of `Model`, and
+setting the `$_extended_field` property to the name of the column that will store the
+JSON data:
+
+~~~php
+<?php
+
+namespace myapp;
+
+class Person extends \ExtendedModel {
+	public $table = '#prefix#myapp_people';
+	
+	public $_extended_field = 'extra';
+}
+
+?>
+~~~
+
+The extended field will also have to be added to the database schema:
+
+~~~sql
+create table #prefix#myapp_people (
+	id int not null auto_increment primary key,
+	name char(48) not null,
+	age int not null,
+	gender enum('m','f') not null,
+	extra text not null,
+	index (age),
+	index (gender)
+);
+~~~
+
+Now you can access the extended values in a couple ways:
+
+~~~php
+<?php
+
+// fetch an item
+$p = new myapp\Person (1);
+
+// update the extended field directly
+$extra = $p->extra;
+$extra['favorite_food'] = 'pizza';
+$extra['favorite_color'] = 'green';
+$p->extra = $extra;
+$p->put ();
+
+// update the extended field via the ext() method
+$extra = $p->ext (); // same as $extra = $p->extra;
+$p->ext ('favorite_food', 'pizza');
+$p->ext ('favorite_color', 'green');
+$p->put ();
+
+// retrieve individual values from the extended field
+echo $p->ext ('favorite_food');
+
+?>
+~~~
+
+You can also define specific extended fields as well as validation rules for them in the
+`$verify` array like this:
+
+~~~php
+<?php
+
+namespace myapp;
+
+class Person extends \ExtendedModel {
+	public $table = '#prefix#myapp_people';
+	
+	public $_extended_field = 'extra';
+	
+	public $verify = array (
+		'favorite_food' => array (
+			'extended' => true
+		),
+		'favorite_color' => array (
+			'extended' => true,
+			'regex' => '/^(red|green|blue|yellow|orange|purple|pink|brown)$/i'
+		)
+	);
+}
+
+?>
+~~~
+
+The extended fields defined in `$verify` also become accessible as regular properties of
+your model object, for example:
+
+~~~php
+<?php
+
+$p = new myapp\Person (1);
+
+echo $p->favorite_food;
+
+$p->favorite_color = 'black';
+if (! $p->put ()) {
+	// this will fail because of the input validation on favorite_color
+	echo $p->error;
+}
+
+?>
+~~~
 
 ## Direct database access
 
