@@ -37,7 +37,7 @@ Here is a model that reads and writes to the above table:
 
 namespace myapp;
 
-class Person extens \Model {
+class Person extends \Model {
 	public $table = '#prefix#myapp_people';
 }
 
@@ -74,17 +74,151 @@ $p->remove ();
 
 ## Querying a model
 
-...
+The Model class defines a number of methods that can be chained together to compose
+search queries. Here's an example:
+
+~~~php
+<?php
+
+$res = myapp\Person::query ()
+	->where ('age > ?', 30)
+	->where ('gender', 'm')
+	->order ('name', 'asc')
+	->fetch (20, 0);
+
+foreach ($res as $row) {
+	// each $row is a myapp\Person object
+	echo $row->name;
+}
+
+?>
+~~~
+
+A query begins with the static `::query()` method, which returns a new, blank instance
+of the model. Each method in the chain after that then returns the same object with the
+added search options, until the last method performs the query itself and returns the
+results.
+
+Here is a list of querying methods:
+
+* `from($from)` - Specify an alternate FROM clause
+* `group($group)` - Group the results
+* `having($key, $value)` - Add a HAVING clause
+* `order($by, $sorting)` - Sort the results
+* `or_where($key, $value)` - Add an OR clause to the query
+* `where($key, $value)` - Add a WHERE clause
+
+The fetching method at the end of the query can be one of:
+
+* `count($limit, $offset)` - Fetch the number of results for a query
+* `fetch($limit, $offset)` - Fetch the results as an array of model objects
+* `fetch_assoc($key, $value, $limit, $offset)` - Fetch the results as associative arrays
+* `fetch_field($field, $limit, $offset)` - Fetch an array of a single field
+* `fetch_orig($limit, $offset)` - Fetch the results as an array of plain objects
+* `single()` - Fetch just a single object from the query
+* `sql($limit, $offset)` - Return the SQL query without executing it
 
 ## Custom methods
 
-...
+Custom methods should be used to encapsulate the logic around your model operations.
+For example, here is a method that will return all men or all women from our model:
 
-## Relations to other models
+~~~php
+<?php
 
-...
+namespace myapp;
+
+class Person extends \Model {
+	public $table = '#prefix#myapp_people';
+	
+	public function by_gender ($gender = 'm') {
+		return self::query ()
+			->where ('gender', $gender)
+			->fetch ();
+	}
+}
+
+?>
+~~~
+
+And to use this method you could write:
+
+~~~php
+<?php
+
+$p = new myapp\Person;
+
+$res = $p->by_gender ('m');
+if (! is_array ($res)) {
+	error_log ($p->error);
+	return;
+}
+
+// do something with $res
+
+?>
+~~~
 
 ## Data validation
+
+Models support the same [input validation types](/docs/2.0/developers/input-validation)
+as forms. These help prevent invalid data from being saved. To define validation rules,
+set the `$verify` property like this:
+
+~~~php
+<?php
+
+namespace myapp;
+
+class Person extends \Model {
+	public $table = '#prefix#myapp_people';
+	
+	public $verify = array (
+		'age' => array (
+			'type' => 'numeric'
+		),
+		'gender' => array (
+			'regex' => '/^(m|f)$/'
+		)
+	);
+}
+
+?>
+~~~
+
+You can also store the validations in their own file, just like form validations, by
+setting `$verify` to the path to your validation file:
+
+~~~php
+
+<?php
+
+namespace myapp;
+
+class Person extends \Model {
+	public $table = '#prefix#myapp_people';
+	
+	public $verify = 'apps/myapp/forms/person.php';
+}
+
+?>
+~~~
+
+In the validation file, the same validations as above would look like this:
+
+~~~ini
+; <?php /*
+
+[age]
+type = numeric
+
+[gender]
+regex = "/^(m|f)$/"
+
+; */ ?>
+~~~
+
+## Relations to other models
 
 ...
 
