@@ -345,6 +345,61 @@ if (! $p->put ()) {
 
 ## Direct database access
 
+Elefant's database abstraction layer is based on PDO, and offers a number of benefits:
+
+* Concise and consistent syntax
+* Lazy-loading of connections
+* Master/slave marshalling for read/write requests
+* Transparent replication support
+* Convenience methods to reduce code
+
+### Connections
+
+A connection is established automatically the first time you request database access,
+based on the settings in `conf/config.php`. To get the underlying PDO connection, use:
+
+~~~php
+<?php
+
+$conn = DB::get_connection ();
+
+?>
+~~~
+
+To fetch the master connection for writes, use:
+
+~~~php
+<?php
+
+$conn = DB::get_connection (1);
+
+?>
+~~~
+
+In practice, this is rarely needed except when integrating with third party database
+libraries. The PDO connection has two attributes set as well:
+
+~~~
+PDO::ATTR_ERRORMODE = PDO::ERRMODE_EXCEPTION
+PDO::ATTR_DEFAULT_FETCH_MODE = PDO::FETCH_OBJ
+~~~
+
+If you use the PDO connection directly, be aware of those settings.
+
+### Replication
+
+Elefant knows to send writes to the master and reads are distributed randomly across
+slaves automatically, with no extra code required.
+
+A request will die on connection failure only if all connections fail, or the master
+connection fails (since master is required for write commands). However, it will
+continue serving from the available connections if one or more of the slaves becomes
+unavailable.
+
+### Convenience methods
+
+#### `DB::execute ($sql, $params)`
+
 ...
 
 Next: [[:View templates]]
