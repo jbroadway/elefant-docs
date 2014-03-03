@@ -93,4 +93,4 @@ $this->require_login ();
 Which wraps `User::require_login()` and instead redirects unauthorized users to `/user/login`
 instead of `/admin`.
 
-Next: [[:Client-side helpers]]
+Next: [[:Caching]]

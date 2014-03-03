@@ -1,0 +1,5 @@
+# Configurations
+
+...
+
+Next: [[:Browser detection]]
