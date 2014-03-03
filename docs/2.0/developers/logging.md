@@ -58,8 +58,10 @@ See the [Analog](https://github.com/jbroadway/analog) documentation for more exa
 ## Debugging REST APIs
 
 REST APIs that are accessed via JavaScript can be a challenge to debug on their own.
-Tools like [FirePHP](http://www.firephp.org/) exist to help with this by forwarding
-logging messages to the browser's debugging console via HTTP headers.
+Tools like [FirePHP](http://www.firephp.org/) and
+[FirePHP4Chrome](https://chrome.google.com/webstore/detail/firephp4chrome/gpgbmonepdpnacijbbdijfbecmgoojma)
+exist to help with this by forwarding logging messages to the browser's debugging
+console via HTTP headers.
 
 To initialize Analog to use FirePHP, add this to your `bootstrap.php`:
 
