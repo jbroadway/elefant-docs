@@ -9,9 +9,19 @@ object-relational mapper (ORM) that is available by extending the
 [Model](http://api.elefantcms.com/visor/lib/Model) class. This provides convenient ways
 of storing and querying the database records associated with a model.
 
-This page will focus on the Model class and its use.
+This page will focus primarily on the Model class and its use.
 
-## A basic model
+## Contents
+
+* [A basic model](#a-basic-model)
+* [Querying a model](#querying-a-model)
+* [Custom methods](#custom-methods)
+* [Data validation](#data-validation)
+* [Flexible schemas with ExtendedModel](#flexible-schemas-with-extendedmodel)
+* [Relations between models](#relations-between-models)
+* [Direct database access](#direct-database-access)
+
+## A basic model {#a-basic-model}
 
 For the examples below, we'll assume the following database schema:
 
@@ -72,7 +82,7 @@ $p->remove ();
 ?>
 ~~~
 
-## Querying a model
+## Querying a model {#querying-a-model}
 
 The Model class defines a number of methods that can be chained together to compose
 search queries. Here's an example:
@@ -118,7 +128,7 @@ The fetching method at the end of the query can be one of:
 * `single()` - Fetch just a single object from the query
 * `sql($limit, $offset)` - Return the SQL query without executing it
 
-## Custom methods
+## Custom methods {#custom-methods}
 
 Custom methods should be used to encapsulate the logic around your model operations.
 For example, here is a method that will return all men or all women from our model:
@@ -159,7 +169,7 @@ if (! is_array ($res)) {
 ?>
 ~~~
 
-## Data validation
+## Data validation {#data-validation}
 
 Models support the same [input validation types](/docs/2.0/developers/input-validation)
 as forms. These help prevent invalid data from being saved. To define validation rules,
@@ -224,11 +234,7 @@ regex = "/^(m|f)$/"
 ; */ ?>
 ~~~
 
-## Relations to other models
-
-...
-
-## Flexible schemas with ExtendedModel
+## Flexible schemas with ExtendedModel {#flexible-schemas-with-extendedmodel}
 
 [ExtendedModel](http://api.elefantcms.com/visor/lib/ExtendedModel) is a class that extends
 Model to include a single field that can contain any JSON data, which will be encoded
@@ -343,7 +349,326 @@ if (! $p->put ()) {
 ?>
 ~~~
 
-## Direct database access
+## Relations between models {#relations-between-models}
+
+Model supports several types of relationships:
+
+* `has_one` - A one-to-one relationship between two models, with the second one referencing the first.
+* `has_many` - A one-to-many relationship between two models, with the objects in the second one referencing the first.
+* `belongs_to` - The reverse of `has_one` or `has_many` relationships.
+* `many_many` - A many-to-many relationship between two models, with a join table between them.
+
+### has_one
+
+A `has_one` relationship is used when you have two database tables, with the second one referencing the first, and you only want one record in the second table for each record in the first.
+
+For example, say we have a `gallery` table and a `cover` image table to store additional fields related to the cover image (to keep the `gallery` table nice and slim).
+
+~~~sql
+create table gallery (
+	id integer primary key,
+	name char(32) not null
+);
+
+create table cover (
+	id integer primary key,
+	gallery int not null,
+	image char(72) not null
+);
+~~~
+
+A gallery only needs one cover image, so we use a `has_one` relationship to say ""A gallery has_one cover"" in our models, which we can describe as follows:
+
+~~~php
+<?php
+
+class Gallery extends Model {
+	public $fields = array (
+		'cover' => array ('has_one' => 'Cover')
+	);
+}
+
+?>
+~~~
+
+This will create a dynamic method `cover()` that will retrieve the `Cover` object associated with the current gallery. For example:
+
+~~~php
+<?php
+
+$gallery = new Gallery (1);
+$cover = $gallery->cover ();
+echo $cover->image;
+
+?>
+~~~
+
+> Note: We will define the `Cover` model in the `belongs_to` section below.
+
+### has_many
+
+Let's add an item table to our schema:
+
+~~~sql
+create table item (
+	id integer primary key,
+	gallery int not null,
+	name char(32) not null
+);
+~~~
+
+A gallery will have multiple items, so we can update our `Gallery` model and add a `has_many` relationship to `Item` (which we'll define in the next section):
+
+~~~php
+<?php
+
+class Gallery extends Model {
+	public $fields = array (
+		'cover' => array ('has_one' => 'Cover'),
+		'items' => array ('has_many' => 'Item')
+	);
+}
+
+?>
+~~~
+
+Here we used the plural `items`, so the dynamic method will be `items()` and can be used like this:
+
+~~~php
+<?php
+
+$gallery = new Gallery (1);
+
+$items = $gallery->items ();
+
+foreach ($items as $item) {
+	printf ('%s<br />', $item->name);
+}
+
+?>
+~~~
+
+> Note: By default, models will assume the field name in the `cover` and `item` tables is the same as the `gallery` table name. To override this, add a `'field_name' => 'gallery_id'` to the field definition with the real field name:
+
+~~~php
+<?php
+
+class Gallery extends Model {
+	public $fields = array (
+		'cover' => array (
+			'has_one' => 'Cover',
+			'field_name' => 'gallery_id'
+		),
+		'items' => array (
+			'has_many' => 'Item',
+			'field_name' => 'gallery_id'
+		)
+	);
+}
+
+?>
+~~~
+
+### belongs_to
+
+Now it's time to create our `Cover` and `Item` models, which will use a `belongs_to` relation, which is the reverse of the `has_one` and `has_many` relations.
+
+~~~php
+<?php
+
+class Cover extends Model {
+	public $fields = array (
+		'gallery' => array ('belongs_to' => 'Gallery')
+	);
+}
+
+?>
+~~~
+
+And for the `Item` model:
+
+~~~php
+<?php
+
+class Item extends Model {
+	public $fields = array (
+		'gallery' => array ('belongs_to' => 'Gallery')
+	);
+}
+
+?>
+~~~
+
+> Note: By default, models will assume the field name is the same as the method name in a `belongs_to` relation, which is the key in the `$fields` array. You can override this in the same way as before by setting a custom `field_name` value.
+
+Now that we've described both sides of the relationship, we can fetch the `Gallery` belonging to any `Cover` or `Item` object like this:
+
+~~~php
+<?php
+
+$item = new Item (1);
+$gallery = $item->gallery ();
+echo $gallery->name;
+
+$cover = new Cover (1);
+$gallery = $cover->gallery ();
+echo $gallery->name;	
+
+?>
+~~~
+
+We can even chain them if we wish:
+
+~~~php
+<?php
+
+$cover = new Cover (1);
+$items = $cover->gallery ()->items ();
+
+foreach ($items as $item) {
+	printf ('%s<br />', $item->name);
+}
+
+?>
+~~~
+
+### many_many
+
+Many-to-many relationships describe tables that can have multiple records in both that reference a single record in either. They do so using an intermediate table to join them.
+
+Here's an example using books and authors:
+
+~~~sql
+create table author (
+	id integer primary key,
+	name char(32)
+);
+
+create table book (
+	id integer primary key,
+	name char(32)
+);
+
+create table book_author (
+	book int not null,
+	author int not null
+);
+~~~
+
+The `book_author` table references both the `book` and the `author` tables and can contain any combination of IDs from either.
+
+Here's how we can model that with Elefant for the `Author` model:
+
+~~~php
+<?php
+
+class Author extends Model {
+	public $fields = array (
+		'books' => array (
+			'many_many' => 'Book',
+			'join_table' => 'book_author'
+		)
+	);
+}
+
+?>
+~~~
+
+And the `Book` model is the reverse of `Author`:
+
+~~~php
+<?php
+
+class Book extends Model {
+	public $fields = array (
+		'authors' => array (
+			'many_many' => 'Author',
+			'join_table' => 'book_author'
+		)
+	);
+}
+
+?>
+~~~
+
+Now we can query in either direction as easy as this:
+
+~~~php
+<?php
+
+$author = new Author (1);
+$books = $author->books ();
+
+$book = new Book (1);
+$authors = $book->authors ();
+
+?>
+~~~
+
+> Note: The field names will be inferred by the names of the two main tables. If you want to override them, you can specify them like this:
+
+~~~php
+<?php
+
+class Author extends Model {
+	public $fields = array (
+		'books' => array (
+			'many_many' => 'Book',
+			'join_table' => 'book_author',
+			'this_field' => 'author_id',
+			'that_field' => 'book_id'
+		)
+	);
+}
+
+?>
+~~~
+
+### Sorting
+
+Model relationships can specify an `order_by` value to specify how you want results sorted in a `has_many` or `many_many` relationship. It works like this:
+
+~~~php
+<?php
+
+class Gallery extends Model {
+	public $fields = array (
+		'items' => array (
+			'has_many' => 'Item',
+			'order_by' => array ('name', 'asc')
+		)
+	);
+}
+
+?>
+~~~
+
+Now whenever you call `$gallery->items ()` the results will be sorted alphabetically for you.
+
+### A word about caching
+
+By default, the first time one of these dynamic methods is called, the result is memoized so the next call can simply return the same value without hitting the database again and again.
+
+This works well most of the time, since PHP requests are short-lived and avoiding repeated calls to the database can be a big performance win. But sometimes you need to get a fresh copy, in case your database was updated elsewhere in the application. To do this, simply pass a boolean true value to the dynamic method call:
+
+~~~php
+<?php
+
+$gallery = new Gallery (1);
+$items = $gallery->items ();
+
+// these results were memoized
+$items = $gallery->items ();
+
+// these are fresh from the database
+$items = $gallery->items (true);
+
+?>
+~~~
+
+This optimizes for performance first, but gives you the best of both worlds.
+
+## Direct database access {#direct-database-access}
 
 Elefant's database abstraction layer is based on PDO, and offers a number of benefits:
 
@@ -400,6 +725,181 @@ unavailable.
 
 #### `DB::execute ($sql, $params)`
 
-...
+Executes an SQL query and returns true or false if it succeeded or failed. Use `DB::error()`
+to retrieve the error message upon failure. The example shows the different ways you can
+pass parameters:
+
+~~~php
+<?php
+
+$res = DB::execute ('insert into foo values (?, ?)', $name, $other);
+
+// or
+
+$res = DB::execute (
+	'insert into foo values (?, ?)',
+	array ('name' => $name, 'other' => $other)
+);
+
+// or
+
+$obj = new StdClass;
+$obj->name = $name;
+$obj->other = $other;
+
+$res = DB::execute ('insert into foo values (?, ?)', $obj);
+
+?>
+~~~
+
+> Note: `DB::execute()` automatically sends writes to the master for you, so you don't
+> need to worry about replicated databases when you write your apps, and Model does
+> this automatically too.
+
+#### `DB::fetch ($sql, $params)`
+
+Executes an SQL query and returns the results as an array of objects. Returns false
+on error.
+
+~~~php
+<?php
+
+foreach (DB::fetch ('select * from foo') as $row) {
+	echo $row->name;
+}
+
+?>
+~~~
+
+#### `DB::single ($sql, $params)`
+
+Executes an SQL query and returns the first result as an object. Returns false on error.
+
+~~~php
+<?php
+
+$row = DB::single ('select * from foo where id = ?', $id);
+echo $row->name;
+
+?>
+~~~
+
+#### `DB::shift ($sql, $params)`
+
+Executes an SQL query and returns the first column from the first object. Returns false
+on error.
+
+~~~php
+<?php
+
+$name = DB::shift ('select name from foo where id = ?', $id);
+echo $name;
+
+?>
+~~~
+
+#### `DB::shift_array ($sql, $params)`
+
+Executes an SQL query and returns the first column of the results as an array. Returns false
+on error.
+
+~~~php
+<?php
+
+foreach (DB::shift_array ('select name from foo') as $name) {
+	echo $name;
+}
+
+?>
+~~~
+
+#### `DB::pairs ($sql, $params)`
+
+Executes an SQL query and returns the first two columns as an associative array. Returns false
+on error.
+
+~~~php
+<?php
+
+foreach (DB::pairs ('select id, name from foo') as $id => $name) {
+	echo $id . ' - ' . $name;
+}
+
+?>
+~~~
+
+#### `DB::last_id ()`
+
+Returns the last inserted ID value from the last database query.
+
+~~~php
+<?php
+
+if (DB::execute ('insert into bar (id, name) values (null, ?)', $name)) {
+	echo DB::last_id ();
+}
+
+?>
+~~~
+
+#### `DB::error ()`
+
+Returns the last error message from the last database query, or false if there was no error.
+
+~~~php
+<?php
+
+if (! DB::execute ('insert into bar (id, name) values (null, ?, ?)', $name)) {
+	echo DB::error ();
+}
+
+?>
+~~~
+
+#### Transactions
+
+`DB::beginTransaction()`, `DB::rollback()` and `DB::commit()` provide database transaction
+support.
+
+~~~php
+<?php
+
+DB::beginTransaction ();
+
+$names = array ('Joe', 'John', 'Jim');
+
+foreach ($names as $name) {
+	if (! DB::execute ('insert into bar (name) values (?)', $name)) {
+		DB::rollback ();
+		die ('The sky is falling!'); // too melodramatic?
+	}
+}
+
+DB::commit ();
+
+?>
+~~~
+
+#### `DB::get_connection ($master = 0)`
+
+Fetches a database connection (PDO object). If `$master` is set to `1`, it will return the
+master connection. If `$master` is set to `-1`, it will return a random connection from
+only the slaves. If `$master` is set to `0`, it will return a random connection which
+could be any of the slaves or the master.
+
+~~~php
+<?php
+
+// get any connection
+$pdo = DB::get_connection ();
+
+// get the master connection
+$master = DB::get_connection (1);
+
+// get a slave connection
+$slave = DB::get_connection (-1);
+
+?>
+~~~
 
 Next: [[:View templates]]
