@@ -62,12 +62,9 @@ p>code, li>code, blockquote>code {
 }
 
 #docs-body blockquote {
-	background-color: #ffe;
-	border: 1px solid #ddb;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	padding: 5px;
+	border-left: 3px solid #ccc;
+	color: #999;
+	padding-left: 12px;
 	margin-bottom: 12px;
 }
 
