@@ -9,7 +9,7 @@ Browser requirements:
 
 Server requirements:
 
-* [PHP 5.3+](http://www.php.net/)
+* [PHP 5.3+](http://www.php.net/) or [HHVM](http://hhvm.com/)
 * [Apache](http://httpd.apache.org/) with mod_rewrite or [Nginx](http://nginx.org/) web server
 * [SQLite](http://sqlite.org/), *[MySQL](http://mysql.com/), or [PostgreSQL](http://www.postgresql.org/) database
 * PHP [CURL extension](http://www.php.net/manual/en/book.curl.php) required for some features
