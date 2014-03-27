@@ -17,4 +17,4 @@ http://www.example.com/
 
 This way, as an admin, you can still edit the redirecting page should you need to at any time, for example to update the redirection.
 
-Next: [[:Blogging]]
+Next: [[:Custom fields]]

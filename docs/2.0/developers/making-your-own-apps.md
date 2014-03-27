@@ -11,6 +11,7 @@ Elefant's apps have the following folder structure:
 				cli.php
 				config.php
 				embed.php
+				fields.php
 				helpers.php
 				install_mysql.sql
 				install_pgsql.sql

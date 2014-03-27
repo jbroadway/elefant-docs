@@ -71,4 +71,4 @@ And the same thing called from a template:
 {! blog/rssviewer?url=http://www.example.com/blog/rss !}
 ~~~
 
-Next: [[:PHPUnit and testing]]
+Next: [[:Writing dynamic custom fields]]

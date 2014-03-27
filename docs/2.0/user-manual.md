@@ -1,5 +1,8 @@
 # User Manual
 
+The user manual aims to provide an overview of the software from the
+perspective of a content editor on your website.
+
 ## The user interface
 
 * [[>Logging in]]
@@ -14,6 +17,7 @@
 * [[>Dynamic objects]]
 * [[>Extra options]]
 * [[>Redirecting pages]]
+* [[>Custom fields]]
 
 ## Additional Features
 

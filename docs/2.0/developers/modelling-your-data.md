@@ -902,4 +902,4 @@ $slave = DB::get_connection (-1);
 ?>
 ~~~
 
-Next: [[:View templates]]
+Next: [[:Creating RESTful APIs]]
