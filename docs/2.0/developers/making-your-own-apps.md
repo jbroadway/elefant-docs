@@ -139,6 +139,12 @@ Input parameter settings include:
 
 Additional settings are interpreted as [[:input validation]] rules.
 
+### `fields.php`
+
+The fields file lists any custom field types defined by your app. These will be available in the Custom Fields editor under any of the content types that support custom fields, such as web pages, blog posts, and users.
+
+For more info, see [[developers / writing dynamic custom fields]].
+
 ### `helpers.php`
 
 The helpers file lists any handlers that you wish to denote as helpers to be used by other developers in their own apps. These will be listed when a user runs the `./elefant list-helpers` command. For example:
