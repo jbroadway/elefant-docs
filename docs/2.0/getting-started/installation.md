@@ -24,7 +24,7 @@ You will also need the following information to complete the installation proces
 
 ## Getting started
 
-**Step 1.** Brab the latest copy of Elefant using the following command:
+**Step 1.** Grab the latest copy of Elefant using the following command:
 
 ~~~bash
 composer create-project elefant/cms --stability=dev /var/www

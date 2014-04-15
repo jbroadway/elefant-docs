@@ -1,6 +1,6 @@
 # Upgrading Elefant
 
-**Important: Before upgrading, make sure you have backed up your site first.**
+**Important: Before upgrading, make sure to [backup your site](/docs/2.0/administration/backing-up-your-site) first.**
 
 To upgrade your site, use the Elefant CLI tool like this:
 
