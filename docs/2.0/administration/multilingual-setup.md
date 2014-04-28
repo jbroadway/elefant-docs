@@ -66,9 +66,9 @@ You may also want to create sidebars specific to each language. To do this, go t
 
 We're going to change it to use this tag instead:
 
-	{! blocks/index?id=[i18n.language] !}
+	{! blocks/index?id=members-[i18n.language] !}
 
-This tells Elefant to look for a block with the ID matching the current language (e.g., `es`) instead of hard-coding a single ID value, allowing it to dynamically chose the right block content based on the current language.
+This tells Elefant to look for a block with the ID matching the current language (e.g., `members-es`) instead of hard-coding a single ID value, allowing it to dynamically chose the right block content based on the current language.
 
 Now you'll see a little `+` icon and a blank space where the old sidebar block used to be. Click that to add a block for the current language.
 
