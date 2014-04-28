@@ -87,11 +87,12 @@ p>code, li>code, blockquote>code {
 
 #targets {
 	float: right;
+	margin-top: -4px;
 }
 
 #breadcrumb {
 	border-bottom: 1px dotted #ccc;
-	padding-bottom: 3px;
+	padding-bottom: 4px;
 }
 
 #docs-body {
