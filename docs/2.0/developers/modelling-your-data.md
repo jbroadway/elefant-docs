@@ -128,6 +128,35 @@ The fetching method at the end of the query can be one of:
 * `single()` - Fetch just a single object from the query
 * `sql($limit, $offset)` - Return the SQL query without executing it
 
+Here is an example of a more complex query using closures:
+
+~~~php
+<?php
+
+$res = myapp\Person::query ()
+	->where (function ($q) {
+		$q->where ('age < ?', 18);
+		$q->or_where ('age >= ?', 65);
+	})
+	->where ('gender', 'm')
+	->order ('name', 'asc')
+	->fetch (20, 0);
+
+?>
+~~~
+
+The generated SQL query (with parameters inlined) would look like this:
+
+~~~sql
+SELECT *
+FROM #prefix#myapp_people
+WHERE (age < 18 or age >= 65)
+AND gender = 'm'
+ORDER BY name asc
+LIMIT 20
+OFFSET 0
+~~~
+
 ## Custom methods {#custom-methods}
 
 Custom methods should be used to encapsulate the logic around your model operations.
