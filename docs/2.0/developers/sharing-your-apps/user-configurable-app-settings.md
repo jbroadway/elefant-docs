@@ -51,7 +51,7 @@ And here is the outline of our handler, saved to `apps/myapp/handlers/settings.p
 <?php
 
 // keep unauthorized users out
-$this->require_admin ();
+$this->require_acl ('admin', $this->app);
 
 // set the layout and page title
 $page->layout = 'admin';
