@@ -42,7 +42,7 @@ Here is a commented example of a complete install handler script. For a typical 
 <?php
 
 // keep unauthorized users out
-$this->require_admin ();
+$this->require_acl ('admin', $this->app);
 
 // set the layout
 $page->layout = 'admin';
@@ -103,13 +103,18 @@ printf ('<p><a href="/%s/admin">%s</a></p>', $this->app, __ ('Done.'));
 
 ## Upgrade handler
 
-Here is the outline of an upgrade handler, minus any database logic since that will depend on your app.
+Here is a commented example of a complete upgrade handler script.
+The script will install any database schema changes that it finds under
+your app's `conf` folder. It assumes the naming convention
+`conf/upgrade_{$version}_{$driver}.sql`, where `{$version}` is the new version
+number only (e.g., `1.2.1` for `1.2.1-stable`, leaving out the stability text)
+and `{$driver}` is the database driver (found in the global site configuration).
 
 ~~~php
 <?php
 
 // keep unauthorized users out
-$this->require_admin ();
+$this->require_acl ('admin', $this->app);
 
 // set the layout
 $page->layout = 'admin';
@@ -130,6 +135,38 @@ $page->title = sprintf (
     __ ('Upgrading App'),
     Appconf::get ($this->app, 'Admin', 'name')
 );
+
+// grab the database driver
+$conn = conf ('Database', 'master');
+$driver = $conn['driver'];
+
+// check if upgrade script exists and if so, run it
+$file = 'apps/' . $this->app . '/conf/upgrade_' . $version . '_' . $driver . '.sql';
+if (file_exists ($file)) {
+	// begin the transaction
+	DB::beginTransaction ();
+
+	// parse the database schema into individual queries
+	$sql = sql_split (file_get_contents ($file));
+	
+	// execute each query in turn
+	foreach ($sql as $query) {
+		if (! DB::execute ($query)) {
+			// show error and rollback on failures
+			printf (
+				'<p class="visible-notice">%s: %s</p><p>%s</p>',
+				__ ('Error'),
+				DB::error (),
+				__ ('Install failed.')
+			);
+			DB::rollback ();
+			return;
+		}
+	}
+
+	// commit the transaction
+	DB::commit ();
+}
 
 // add your upgrade logic here
 
