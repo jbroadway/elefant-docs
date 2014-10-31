@@ -23,7 +23,6 @@ Elefant code should use trailing braces instead of putting them on their own lin
 		}
 	}
 	
-	?>
 
 ### Comments
 
@@ -56,8 +55,7 @@ For reference, here is a complete example class in the recommended style:
 		}
 	}
 	
-	?>
 	
-> Note: PHP closing tags are generally used, but optional.
+> Note: PHP closing tags should not be included and files should end with a blank line.
 
 Back: [[Developers / Contributing to Elefant]]
