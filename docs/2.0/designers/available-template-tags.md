@@ -1,6 +1,6 @@
 # Available template tags
 
-When a layout template is run, it is passed the [Page](http://api.elefantcms.com/visor/lib/Page) object, which makes the following tags available to the template. Note the way each is used, as some have filters or conditions that will help ensure they render consistently.
+When a layout template is run, it is passed the [Page](https://www.elefantcms.com/visor/lib/Page) object, which makes the following tags available to the template. Note the way each is used, as some have filters or conditions that will help ensure they render consistently.
 
 ### id
 

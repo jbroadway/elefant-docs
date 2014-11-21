@@ -80,4 +80,4 @@ To run the full suite of tests, use:
 	$ cd /path/to/your/site
 	$ phpunit tests
 
-Next: [API reference](http://api.elefantcms.com/)
+Next: [API reference](https://www.elefantcms.com/visor)

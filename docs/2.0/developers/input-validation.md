@@ -1,6 +1,6 @@
 # Input validation
 
-Input validation can be performed in both the form and model layers, or directly using the [Validator](http://api.elefantcms.com/visor/lib/Validator) class directly. Form validations are automatically mirrored client-side as well, so there are no needless page refreshes for simple form validations.
+Input validation can be performed in both the form and model layers, or directly using the [Validator](https://www.elefantcms.com/visor/lib/Validator) class directly. Form validations are automatically mirrored client-side as well, so there are no needless page refreshes for simple form validations.
 
 At its most basic, validation takes the following form:
 
@@ -58,7 +58,7 @@ The `= 1` is used in validation rules that don't require additional info to proc
 
 ## Validating forms
 
-Elefant makes validating forms very natural with a little autoloading magic. When you call [`$form->handle()`](http://api.elefantcms.com/visor/lib/Form#method-handle) without specifying any validations, it will look for a validation file with the same name as the handler in the `forms` folder and use those to validate your form.
+Elefant makes validating forms very natural with a little autoloading magic. When you call [`$form->handle()`](https://www.elefantcms.com/visor/lib/Form#method-handle) without specifying any validations, it will look for a validation file with the same name as the handler in the `forms` folder and use those to validate your form.
 
 For example, if your form is saved to `apps/myapp/handlers/myform.php`, your validations will be automatically loaded from the file `apps/myapp/forms/myform.php`. Elefant will also automatically create corresponding client-side validations for you as well.
 

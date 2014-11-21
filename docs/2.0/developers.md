@@ -39,4 +39,4 @@ Elefant framework to suit your needs.
 * [[>Using Composer and Packagist]]
 * [[>Sharing your apps]]
 * [[>Contributing to Elefant]]
-* [API reference](http://api.elefantcms.com/)
+* [API reference](https://www.elefantcms.com/visor)

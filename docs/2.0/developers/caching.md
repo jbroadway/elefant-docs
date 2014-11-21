@@ -5,7 +5,7 @@ Elefant provides a caching layer that mimics the
 with some additional conveniences, and provides the following storage options:
 
 * [APC](http://php.net/apc) or [APCu](http://pecl.php.net/package/APCu)
-* [Filesystem](http://api.elefantcms.com/visor/lib/Cache)
+* [Filesystem](https://www.elefantcms.com/visor/lib/Cache)
 * [Memcache](http://php.net/memcache)
 * [Redis](https://github.com/nicolasff/phpredis)
 * [XCache](http://xcache.lighttpd.net/)

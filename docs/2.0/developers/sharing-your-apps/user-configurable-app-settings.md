@@ -2,7 +2,7 @@
 
 In general, users should never have to modify the original files within an app. Elefant provides a means of overriding app settings without having to edit the app's original configuration file.
 
-How it works is when an app's configuration is loaded by the [Appconf](http://api.elefantcms.com/visor/lib/Appconf) class, it also checks for the existence of a custom configuration file, named in the following pattern:
+How it works is when an app's configuration is loaded by the [Appconf](https://www.elefantcms.com/visor/lib/Appconf) class, it also checks for the existence of a custom configuration file, named in the following pattern:
 
 	conf/app.{$appname}.{ELEFANT_ENV}.php
 

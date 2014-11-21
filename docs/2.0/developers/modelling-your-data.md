@@ -6,7 +6,7 @@ lightweight.
 
 Elefant also provides an [ActiveRecord](http://guides.rubyonrails.org/active_record_querying.html)-style
 object-relational mapper (ORM) that is available by extending the
-[Model](http://api.elefantcms.com/visor/lib/Model) class. This provides convenient ways
+[Model](https://www.elefantcms.com/visor/lib/Model) class. This provides convenient ways
 of storing and querying the database records associated with a model.
 
 This page will focus primarily on the Model class and its use.
@@ -265,7 +265,7 @@ regex = "/^(m|f)$/"
 
 ## Flexible schemas with ExtendedModel {#flexible-schemas-with-extendedmodel}
 
-[ExtendedModel](http://api.elefantcms.com/visor/lib/ExtendedModel) is a class that extends
+[ExtendedModel](https://www.elefantcms.com/visor/lib/ExtendedModel) is a class that extends
 Model to include a single field that can contain any JSON data, which will be encoded
 and decoded for you automatically. This enables you to extend your models with any number
 of additional properties without needing to change your schema.

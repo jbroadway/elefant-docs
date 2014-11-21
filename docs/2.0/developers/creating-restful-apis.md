@@ -1,6 +1,6 @@
 # Creating RESTful APIs
 
-To create RESTful APIs, Elefant provides the [Restful](http://api.elefantcms.com/visor/lib/Restful) class.
+To create RESTful APIs, Elefant provides the [Restful](https://www.elefantcms.com/visor/lib/Restful) class.
 Here's how it works:
 
 ## 1. Extend Restful to create your API

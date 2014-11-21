@@ -64,7 +64,7 @@ $ phpunit apps/myapp/tests/MyClassTest.php
 
 ## Testing handlers
 
-Elefant includes a special class called [AppTest](http://api.elefantcms.com/visor/lib/AppTest)
+Elefant includes a special class called [AppTest](https://www.elefantcms.com/visor/lib/AppTest)
 that extends PHPUnit to make it easier to test handlers in addition to regular PHP classes.
 This class initializes the Elefant environment, including creating a test database in memory
 based on the default Elefant schema, that handlers may expect to be present.

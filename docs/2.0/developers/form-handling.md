@@ -1,12 +1,12 @@
 # Form handling
 
-Form handling in Elefant is done through the [Form](http://api.elefantcms.com/visor/lib/Form)
+Form handling in Elefant is done through the [Form](https://www.elefantcms.com/visor/lib/Form)
 class. The Form class provides an elegant API for handling forms, while performing
 multiple levels of validation for you automatically, including:
 
 * Referrer and request method validation
 * Cross-site request forgery (CSRF) prevention
-* Server-side input validation via the [Validator](http://api.elefantcms.com/visor/lib/Validator) class
+* Server-side input validation via the [Validator](https://www.elefantcms.com/visor/lib/Validator) class
 * Client-side input validation via the `jQuery.verify_values` plugin
 
 ## Basic usage

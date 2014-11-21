@@ -2,5 +2,5 @@
 
 Elefant's API documentation can be found at:
 
-* [http://api.elefantcms.com/](http://api.elefantcms.com/)
+* [https://www.elefantcms.com/visor](https://www.elefantcms.com/visor)
 

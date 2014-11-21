@@ -16,7 +16,7 @@ Below is the extensive developer documentation covering every aspect of the Elef
 
 ## Essentials
 
-* [API reference](http://api.elefantcms.com/)
+* [API reference](https://www.elefantcms.com/visor)
 * [[Autoloading and namespaces]]
 * [[Using Composer packages]]
 

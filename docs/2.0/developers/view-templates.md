@@ -11,7 +11,7 @@ See the [[Designers / template language]] page for a complete overview with exam
 There are two differences between layout templates and view templates:
 
 1. Layouts live in the `layouts` folder, whereas views live in the `views` folder of a particular app.
-2. Layout templates are always passed the [Page](http://api.elefantcms.com/visor/lib/Page) object, which defines the [tags that are available](/docs/2.0/designers/available-template-tags), whereas you may pass any data you need to a view template.
+2. Layout templates are always passed the [Page](https://www.elefantcms.com/visor/lib/Page) object, which defines the [tags that are available](/docs/2.0/designers/available-template-tags), whereas you may pass any data you need to a view template.
 
 ## Rendering a template
 
@@ -45,7 +45,7 @@ This will look for a template file named `apps/myapp/views/email/welcome.html`.
 
 ## Encapsulating view logic
 
-There are times when complex views begin to bleed presentational logic into a handler, since templates themselves are not very sophisticated by design. Elefant provides a [View](http://api.elefantcms.com/visor/lib/View) class to help in these cases.
+There are times when complex views begin to bleed presentational logic into a handler, since templates themselves are not very sophisticated by design. Elefant provides a [View](https://www.elefantcms.com/visor/lib/View) class to help in these cases.
 
 `View::render()` differs from `$tpl->render()` in that it also accepts a [callable](http://ca2.php.net/manual/en/language.types.callable.php) in place of a template name.
 

@@ -67,8 +67,8 @@ You can also include this in a condition in your view templates:
 ~~~
 
 For more info on managing users and roles, see the
-[User](http://api.elefantcms.com/visor/lib/User) and
-[Acl](http://api.elefantcms.com/visor/lib/Acl) classes.
+[User](https://www.elefantcms.com/visor/lib/User) and
+[Acl](https://www.elefantcms.com/visor/lib/Acl) classes.
 
 ## Convenience methods
 
