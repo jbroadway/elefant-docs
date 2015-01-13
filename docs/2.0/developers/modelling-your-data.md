@@ -347,7 +347,8 @@ class Person extends \ExtendedModel {
 	
 	public $verify = array (
 		'favorite_food' => array (
-			'extended' => true
+			'extended' => true,
+			'default' => 'pizza'
 		),
 		'favorite_color' => array (
 			'extended' => true,
