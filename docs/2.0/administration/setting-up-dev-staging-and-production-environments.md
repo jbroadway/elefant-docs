@@ -11,3 +11,20 @@ SetEnv ELEFANT_ENV development
 ~~~
 
 Now you can edit your different configuration files to suit your needs in each separate environment, and Elefant will load the correct one in each context.
+
+## Command line and cron jobs
+
+To specify the environment on the command line, you can export the variable directly like this:
+
+~~~bash
+export ELEFANT_ENV=staging
+./elefant version
+~~~
+
+You can also specify the environment via the `--env` option directly in the `./elefant` command:
+
+~~~bash
+./elefant --env=staging version
+~~~
+
+Note that calling a handler directly via `php index.php cli/version` does not listen for the `--env` option.
