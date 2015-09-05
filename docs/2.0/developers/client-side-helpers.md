@@ -2,7 +2,9 @@
 
 The following is a list of client-side helpers for app developers that are included in
 the Elefant CMS. Most of these are written as jQuery plugins and are loaded by including
-a handler in your view template (e.g., `{! admin/util/modal !}`).
+a helper in your view template (e.g., `{! admin/util/modal !}`).
+
+For more info on including helpers, see [[:Server-side helpers]].
 
 ## $.add_notification (msg);
 
