@@ -3,7 +3,8 @@
 Beyond reusing PHP classes, Elefant allows a developer to specify handlers in their
 apps as being "helpers" which can be reused in other apps.
 
-To see a list of available helpers, run the following command:
+To see a list of available helpers, visit the [helpers reference](/helpers), or
+run the following command:
 
 ~~~bash
 $ ./elefant list-helpers
@@ -79,4 +80,6 @@ And the same thing called from a template:
 {! blog/rssviewer?url=http://www.example.com/blog/rss !}
 ~~~
 
-Next: [[:Writing dynamic custom fields]]
+For a full list of helpers and what they do, visit the [helpers reference](/helpers).
+
+Next: [[:Client-side helpers]]

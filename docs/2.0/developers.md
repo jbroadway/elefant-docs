@@ -32,11 +32,12 @@ Elefant framework to suit your needs.
 * [[>Browser detection]]
 * [[>Hooks, Elefant's event system]]
 * [[>Writing command line scripts]]
-* [[>Client-side helpers]]
 * [[>Server-side helpers]]
+* [[>Client-side helpers]]
 * [[>Writing dynamic custom fields]]
 * [[>PHPUnit and testing]]
 * [[>Using Composer and Packagist]]
 * [[>Sharing your apps]]
 * [[>Contributing to Elefant]]
-* [API reference](https://www.elefantcms.com/visor)
+* [API reference](/api)
+* [Helpers reference](/helpers)

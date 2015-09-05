@@ -4,7 +4,7 @@ The following is a list of client-side helpers for app developers that are inclu
 the Elefant CMS. Most of these are written as jQuery plugins and are loaded by including
 a helper in your view template (e.g., `{! admin/util/modal !}`).
 
-For more info on including helpers, see [[:Server-side helpers]].
+For more info on including helpers, see [[:server-side helpers]].
 
 ## $.add_notification (msg);
 
@@ -451,4 +451,4 @@ in your app:
 Available by including the `admin/util/extended` handler. See
 usage section for more details.
 
-Next: [[:Server-side helpers]]
+Next: [[:Writing dynamic custom fields]]

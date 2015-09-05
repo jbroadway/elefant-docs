@@ -1,19 +1,36 @@
 # Including dynamic content
 
-Dynamic includes can be used to embedded almost any handler into your template, although apps often provide specific handlers that are intended for reuse outside of the app itself, called helpers. To see a list of handlers that apps have marked as helpers, you can run the following [command](/docs/2.0/administration/command-line-tool):
+Dynamic includes can be used to embedded almost any handler into your template, although apps often provide specific handlers that are intended for reuse outside of the app itself, called helpers.
+
+To see a list of handlers that apps have marked as helpers, visit the [helpers reference](/helpers), or run the following [command](/docs/2.0/administration/command-line-tool):
 
 ~~~bash
 ./elefant list-helpers
 ~~~
 
-This will output a raw list of handlers. To see what a given handler does and how to use it, you can usually find instructions in a PHP comment at the top of the handler script.
+This will output a raw list of handlers.
 
-For example, the `blog/tags` helper says:
+To see what a given handler does and how to use it, you can use the following command:
 
-~~~php
-/**
- * Renders a tag cloud, with more frequently used tags appearing larger.
- */
+~~~bash
+$ ./elefant helper-docs <helper>
+~~~
+
+This will output the documentation found in the first block-level comment in the handler
+script.
+
+For example, if you run:
+
+~~~bash
+$ ./elefant helper-docs blog/tags
+~~~
+
+This will output:
+
+~~~markdown
+# Helper: blog/tags
+
+Renders a tag cloud, with more frequently used tags appearing larger.
 ~~~
 
 This helper uses no parameters, so including it in your template is as simple as this:
@@ -24,15 +41,15 @@ This helper uses no parameters, so including it in your template is as simple as
 
 The `blog/rssviewer` helper lists one parameter:
 
-~~~php
-/**
- * Renders the specified RSS feed `url` as a list of links.
- * Caches the feed for 30 minutes between updates.
- *
- * Parameters:
- *
- * - `url`: The URL of the RSS feed to be displayed.
- */
+~~~markdown
+# Helper: blog/rssviewer
+
+Renders the specified RSS feed `url` as a list of links.
+Caches the feed for 30 minutes between updates.
+
+Parameters:
+
+- `url`: The URL of the RSS feed to be displayed.
 ~~~
 
 So we know that to use this helper, we need to include the URL like this:
@@ -59,5 +76,7 @@ Here are a few common helpers often used in designing themes:
 * `navigation/top` - Embed a top-level menu
 * `social/video/youtube` - Embed a YouTube video into the current page
 * `user/sidebar` - Embed a user login/profile summary
+
+For a full list of helpers and what they do, visit the [helpers reference](/helpers).
 
 Next: [[:Sharing your themes]]

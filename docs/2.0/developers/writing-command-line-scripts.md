@@ -74,4 +74,4 @@ to run it like this:
 
 See [[developers / making your own apps]] for more info.
 
-Next: [[:Client-side helpers]]
+Next: [[:Server-side helpers]]
