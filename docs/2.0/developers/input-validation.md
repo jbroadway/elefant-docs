@@ -51,10 +51,52 @@ unique = "#prefix#user.email"
 
 length = "6+"
 
-; */ ?>
+; */
 ~~~
 
 The `= 1` is used in validation rules that don't require additional info to process. The value here isn't important, so `email = ""` or `email = On` are both perfectly valid too, but since `= 1` is shorter it has found more popular use.
+
+### Multiple validation errors per field
+
+To specify alternate validation errors for different rule sets, use the following block syntax:
+
+~~~ini
+; <?php /*
+
+[email]
+
+not empty = 1
+
+[email:email-invalid]
+
+email = 1
+
+[email:email-taken]
+
+unique = "#prefix#user.email"
+
+; */
+~~~
+
+This will trigger the `#email-notice` notice if it's empty, `#email-invalid-notice` if it's
+not a valid email address, and `#email-taken-notice` if the email already exists in the database.
+
+You can also specify that a block should run its validations on the field as the user types
+via the `validate_on_change` rule, for example:
+
+~~~ini
+; <?php /*
+
+[message_body:missing-confirmation-link]
+
+validate_on_change = 1
+contains = "*|CONFIRMATION_LINK|*"
+
+; */
+~~~
+
+This will show the `#missing-confirmation-link-notice` notice if the message does not
+contain a `*|CONFIRMATION_LINK|*` tag.
 
 ## Validating forms
 
@@ -113,6 +155,10 @@ Here's a list of validation rules and what they do.
 Use this to skip validation if the field has been left blank, but validate otherwise.
 
 > Note: You must put this before the other rules, since they are evaluated in the order they are listed.
+
+#### `validate_on_change = 1`
+
+Use this to validate the field as the user types instead of waiting until the form has been submitted.
 
 #### `file = 1`
 
