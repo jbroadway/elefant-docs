@@ -191,4 +191,6 @@ printf ('<p><a href="/%s">%s</a>', Appconf::get ($this->app, 'Admin', 'handler')
 These install/upgrade handlers will also be generated for you
 if you use the CRUD generator in the [[Administration / command line tool]] to generate your app.
 
+For more complex database migrations, check out the [Migrations](https://github.com/jbroadway/migrate) app.
+
 Back: [[Developers / Sharing your apps]]
