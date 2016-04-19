@@ -146,7 +146,7 @@ $base_current = preg_replace ('/-.*$/', '', $current);
 $files = glob ('apps/' . $this->app . '/conf/upgrade_*_' . $driver . '.sql');
 $apply = array ();
 foreach ($files as $k => $file) {
-	if (preg_match ('/^apps\/' . $this->app . '\/conf\/upgrade_([0-9.]+)_' . $driver . '\.sql$/', $file, $regs)) {
+	if (preg_match ('/^apps\/' . $this->app . '\/conf\/upgrade_([0-9\.-]+)_' . $driver . '\.sql$/', $file, $regs)) {
 		if (version_compare ($regs[1], $base_current, '>') && version_compare ($regs[1], $base_version, '<=')) {
 			$apply[$regs[1]] = $file;
 		}
