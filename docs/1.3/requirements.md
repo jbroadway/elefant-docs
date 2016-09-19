@@ -25,6 +25,8 @@ Browser requirements:
 * [Web Integrations](http://www.webintegrations.co.uk/index/webhosting)
 * [DotCloud](/wiki/Installing-on-DotCloud)
 * [Pagoda Box](/wiki/Installing-on-Pagoda-Box)
+* [RoseHosting](https://www.rosehosting.com/blog/how-to-install-elefant-cms-on-ubuntu-16-04/)
+
 <!--
 * [NavHost](http://www.navhost.com/)
 * [WebFaction](http://www.webfaction.com/)
