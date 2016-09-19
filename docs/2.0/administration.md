@@ -11,4 +11,5 @@ configure the Elefant CMS for your systems.
 * [[>Multisite setup]]
 * [[>Database configurations]]
 * [[>Setting up dev, staging, and production environments]]
+* [[>Environment variables]]
 * [[Getting started / Troubleshooting]]
