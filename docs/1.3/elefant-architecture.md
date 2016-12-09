@@ -4,7 +4,7 @@ Elefant, like most server-side frameworks, employs the [Model2](http://en.wikipe
 
 ## Model2 differences from traditional MVC
 
-Model2 separates your application into models, views, and controllers, but unlike traditional MVC, there's no way for models to notify views of updates like there is in desktop MVC implementations, or Javascript MVC frameworks like [Backbone.js](http://documentcloud.github.com/backbone/).
+Model2 separates your application into models, views, and controllers, but unlike traditional MVC, there's no way for models to notify views of updates like there is in desktop MVC implementations, or Javascript MVC frameworks like [Backbone.js](http://backbonejs.org/).
 
 Instead, a controller takes the request and performs any logic necessary to obtain the correct content for the user. That usually means querying the model. From there, the controller passes the data to the view (a template) to be rendered and returns it to the user.
 
