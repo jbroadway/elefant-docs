@@ -1,8 +1,7 @@
 # Environment variables
 
-Elefant can read a limited number of settings from environment variables, which
-can be useful for containerizing your Elefant app deployments. These settings
-include:
+Elefant can read its settings from environment variables, which can be useful for
+containerizing your Elefant app deployments. These settings by default include:
 
 * `ELEFANT_ENV` - The base configuration file to load for the current environment
 * `ELEFANT_DB_DRIVER` - The database driver to use (e.g., sqlite, mysql)
@@ -18,3 +17,11 @@ include:
 * `ELEFANT_SESSION_HANDLER` - Set the backend session storage handler
 * `ELEFANT_SESSION_DOMAIN` - The domain to limit session cookies to
 * `ELEFANT_SESSION_DURATION` - The lifetime of a session cookie
+
+If your environment variables are named differently, you can modify the `conf/envmap.php`
+file to specify alternate environment variable names to look for. For example,
+to read your database host name from `MYSQL_HOST`, you would edit the following line:
+
+```ini
+ELEFANT_DB_HOST = MYSQL_HOST
+```
