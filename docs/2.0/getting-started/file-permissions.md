@@ -80,4 +80,4 @@ For more info on server permissions, see:
 * [http://www.htmlite.com/php042.php](http://www.htmlite.com/php042.php)
 
 
-Next: [[Getting started / Troubleshooting]]
+Next: [[Getting started / Securing your site]]
