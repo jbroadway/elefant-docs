@@ -18,11 +18,11 @@ While the use of HTTPS is usually configured at the web server level (e.g., Apac
 or Nginx), you can enforce HTTPS at the application level in Elefant by adding
 a `bootstrap.php` file to the root of your site with the following code:
 
-```php
+~~~php
 <?php
 
 $controller->force_https ();
-```
+~~~
 
 ### Use key-based authentication instead of passwords over SSH
 
