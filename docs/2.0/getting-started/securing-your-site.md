@@ -56,15 +56,15 @@ that are not shared with other databases, to decrease the likelihood of those
 credentials being compromised externally as well as the degree of damage someone
 could do with any given set of credentials in your overall system.
 
-### Configure your mime types correctly
+### Configure your mime types to be handled correctly
 
 Misconfigured mime types in your web server can be used to make browsers treat
 non-Javascript files as executable by a web browser, which can be used to trick
 your site admins into uploading and unknowingly executing an exploit that gives
 away access to your website.
 
-Elefant provides a file manager that lets admins upload files to your site, which
-are then served by the web server directly. This exposes a degree of risk if your
+For example, Elefant provides a file manager that lets admins upload files to your site,
+which are then served by the web server directly. This exposes a degree of risk if your
 web server is not properly configured to use the correct mime types for a wide range
 of file types.
 
@@ -73,6 +73,11 @@ instead of `text/plain`, so they're not treated as text and potentially as execu
 Javascript. In Nginx, this would be done using the [default_type](https://nginx.org/en/docs/http/ngx_http_core_module.html#default_type)
 directive. In Apache, this would be done with the [mod_mime](https://httpd.apache.org/docs/current/mod/mod_mime.html)
 module.
+
+Elefant comes with `.htaccess` files to properly configure individual folders safely
+if you're using the Apache web server, while Nginx users should copy the contents
+of the provided [nginx.conf](https://github.com/jbroadway/elefant/blob/master/nginx.conf)
+file into your Nginx server configuration.
 
 It should also be noted that you should not blindly give out admin access to those
 you do not trust, and Elefant can be [configured to limit access](https://www.elefantcms.com/docs/2.0/user-manual/users-and-roles)
