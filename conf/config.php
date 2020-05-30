@@ -12,7 +12,7 @@ include_in_nav = /docs
 
 ; Default version to redirect to.
 
-default_version = 2.0
+default_version = 2.2
 
 ; The name of the app being documented.
 
