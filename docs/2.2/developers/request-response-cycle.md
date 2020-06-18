@@ -2,7 +2,7 @@
 
 Requests in Elefant are all handled by the main `index.php` file, which uses `lib/Controller.php` to determine where to send requests for handling. Here is a diagram that illustrates the flow of a request through Elefant:
 
-![Request flow in Elefant framework](http://jbroadway.github.com/elefant/diagrams/request_flow.png)
+![Request flow in Elefant framework](https://www.elefantcms.com/files/docs/elefant_request_flow.png)
 
 1. A new request is received by `index.php`, the front controller
 2. The request is routed to the correct handler, e.g., `myapp/handler`
