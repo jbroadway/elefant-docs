@@ -27,10 +27,8 @@ You will also need the following information to complete the installation proces
 **Step 1.** Grab the latest copy of Elefant using the following command:
 
 ~~~bash
-composer create-project elefant/cms --stability=dev /var/www
+composer create-project elefant/cms /var/www
 ~~~
-
-> Note: The `--stability=dev` option is required until Elefant 2 is out of beta.
 
 Be sure to adjust the path (`/var/www`) to point to the correct folder. This should
 be your website's document root.
