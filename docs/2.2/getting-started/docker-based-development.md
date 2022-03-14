@@ -105,4 +105,22 @@ To help see what's going on with your worker queues, you can also visit `http://
 
 To see your worker queues, connect the console to your Beanstalkd server at `beanstalkd:11300`.
 
+## Watching your server logs
+
+To tail the output of your web server log output, you can use the following Docker command:
+
+~~~
+docker logs -f --details sitename-www-1
+~~~
+
+This will continuously output your web server logs as you develop and make requests for pages.
+
+Similarly, you can tail the output of your workers with the following command:
+
+~~~
+docker logs -f --details sitename-worker-1
+~~~
+
+This is a great way to watch for errors as you develop.
+
 Next: [[:File permissions]]
