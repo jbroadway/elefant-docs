@@ -200,6 +200,14 @@ list ($token, $key) = Api::create_token ($user_id);
 ?>
 ~~~
 
+To test requests to HMAC-protected endpoints, you can use the `./elefant api/get` and `./elefant api/post` commands like this:
+
+~~~
+$ ./elefant api/get http://www.example.com/myapp/api/blogpost/123 $TOKEN $KEY
+~~~
+
+Replace `$TOKEN` and `$KEY` with the results of calling `Api::create_token()`, which can also be found in the `elefant_api` table.
+
 ## Organizing your API
 
 As an API grows, there are a couple things to keep in mind:
