@@ -9,7 +9,7 @@ Browser requirements:
 
 Server requirements:
 
-* [PHP 5.3+](http://www.php.net/) or [HHVM](http://hhvm.com/)
+* [PHP 7.3+](http://www.php.net/)
 * [Apache](http://httpd.apache.org/) with mod_rewrite or [Nginx](http://nginx.org/) web server
 * [SQLite](http://sqlite.org/), *[MySQL](http://mysql.com/), or [PostgreSQL](http://www.postgresql.org/) database
 * PHP [CURL extension](http://www.php.net/manual/en/book.curl.php) required for some features
@@ -37,7 +37,7 @@ the Apache configuration.
 ### Development
 
 For development workstations, we recommend using virtualization tools to isolate your
-development servers from your operating system. [Here is a set of tools](https://github.com/jbroadway/elefant-vagrant)
-you can use to setup virtual environments for Elefant development.
+development servers from your operating system. Learn how to use a [[getting started / Docker-based development]]
+process with Elefant CMS.
 
 Next: [[:Installation]]
